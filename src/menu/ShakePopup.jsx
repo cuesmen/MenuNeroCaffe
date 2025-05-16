@@ -5,13 +5,37 @@ export default function ShakePopup() {
   const [permissionGranted, setPermissionGranted] = useState(false);
 
   useEffect(() => {
+    async function requestPermissionIfNeeded() {
+      if (
+        typeof DeviceMotionEvent !== "undefined" &&
+        typeof DeviceMotionEvent.requestPermission === "function"
+      ) {
+        try {
+          const state = await DeviceMotionEvent.requestPermission();
+          if (state === "granted") {
+            setPermissionGranted(true);
+          } else {
+            console.warn("Permesso movimento negato.");
+          }
+        } catch (err) {
+          console.error("Errore richiesta permesso:", err);
+        }
+      } else {
+        setPermissionGranted(true); // Android o browser non iOS
+      }
+    }
+
+    requestPermissionIfNeeded();
+  }, []);
+
+  useEffect(() => {
     if (!permissionGranted) return;
 
     let lastShake = 0;
 
     function handleShake(event) {
       const { x, y, z } = event.accelerationIncludingGravity || {};
-      if (x === null || y === null || z === null) return;
+      if (x == null || y == null || z == null) return;
 
       const total = Math.abs(x) + Math.abs(y) + Math.abs(z);
       const now = Date.now();
@@ -28,36 +52,11 @@ export default function ShakePopup() {
     };
   }, [permissionGranted]);
 
-  function enableMotion() {
-    if (
-      typeof DeviceMotionEvent !== "undefined" &&
-      typeof DeviceMotionEvent.requestPermission === "function"
-    ) {
-      DeviceMotionEvent.requestPermission()
-        .then((state) => {
-          if (state === "granted") {
-            setPermissionGranted(true);
-          } else {
-            alert("Permesso negato.");
-          }
-        })
-        .catch(console.error);
-    } else {
-      setPermissionGranted(true); // Android o non iOS
-    }
-  }
-
   return (
     <>
-      {!permissionGranted && (
-        <button className="shake-enable-button" onClick={enableMotion}>
-          📳 Abilita movimento
-        </button>
-      )}
-
       {showPopup && (
         <div className="shake-popup">
-          <p>📳 Hai agitato il telefono!</p>
+          <p>📳 Non ti agitare</p>
           <button onClick={() => setShowPopup(false)}>Chiudi</button>
         </div>
       )}
