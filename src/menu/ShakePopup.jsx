@@ -16,7 +16,7 @@ export default function ShakePopup() {
       const total = Math.abs(x) + Math.abs(y) + Math.abs(z);
       const now = Date.now();
 
-      if (total > 15 && now - lastShake > 1000) {
+      if (total > 30 && now - lastShake > 1000) {
         lastShake = now;
         setShowPopup(true);
       }
