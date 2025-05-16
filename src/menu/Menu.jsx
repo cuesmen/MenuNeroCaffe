@@ -2,6 +2,7 @@ import { GiMartini } from "react-icons/gi";
 import { WiDaySunny } from "react-icons/wi";
 import { FaWineGlass } from "react-icons/fa";
 import { GiChampagneCork } from "react-icons/gi";
+import ShakePopup from "./ShakePopup";
 
 
 function SectionTitle({ title }) {
@@ -67,49 +68,52 @@ export default function Menu() {
     ];
 
     return (
-        <div className="menu-container">
-            <h1 className="menu-title">
-                {/*NERO<br />CAFE*/}
-                <img alt="logo" src="/images/logo.png"></img>
-            </h1>
+        <>
+            <div className="menu-container">
+                <h1 className="menu-title">
+                    {/*NERO<br />CAFE*/}
+                    <img alt="logo" src="/images/logo.png"></img>
+                </h1>
 
-            <div className="menu-wrapper">
-                <div className="menu-left">
-                    <MenuSection
-                        title="VINI BIANCHI"
-                        icon={<FaWineGlass />}
-                        items={viniBianchi}
-                    />
-                    <div className="mt10"> </div>
-                    <MenuSection
-                        title="BOLLICINE"
-                        icon={<GiChampagneCork />}
-                        items={bollicine}
-                    />
+                <div className="menu-wrapper">
+                    <div className="menu-left">
+                        <MenuSection
+                            title="VINI BIANCHI"
+                            icon={<FaWineGlass />}
+                            items={viniBianchi}
+                        />
+                        <div className="mt10"> </div>
+                        <MenuSection
+                            title="BOLLICINE"
+                            icon={<GiChampagneCork />}
+                            items={bollicine}
+                        />
 
-                </div>
-                <div className="menu-right">
-                    <div className="drinks-section">
-                        <div className="drinks-header">
-                            <h2><GiMartini className="icon-inline" /> DRINKS CLASSICI</h2>
-                            <span className="item-price">€8</span>
-                        </div>
-                        <div className="section-divider" />
-                        {drinks.map((drink, idx) => (
-                            <DrinkItem key={idx} name={drink} />
-                        ))}
                     </div>
-                    {/*<div className="extra-items">
+                    <div className="menu-right">
+                        <div className="drinks-section">
+                            <div className="drinks-header">
+                                <h2><GiMartini className="icon-inline" /> DRINKS CLASSICI</h2>
+                                <span className="item-price">€8</span>
+                            </div>
+                            <div className="section-divider" />
+                            {drinks.map((drink, idx) => (
+                                <DrinkItem key={idx} name={drink} />
+                            ))}
+                        </div>
+                        {/*<div className="extra-items">
                         {extras.map((item, idx) => (
                             <DrinkItem key={idx} name={item.title} />
                         ))}
                     </div>*/}
-                    <div className="footer-box">
-                        <p className="footer-title">TUTTI I GIORNI<br />DALLE 18:00</p>
-                        <div className="sun-icon"><WiDaySunny /></div>
+                        <div className="footer-box">
+                            <p className="footer-title">TUTTI I GIORNI<br />DALLE 18:00</p>
+                            <div className="sun-icon"><WiDaySunny /></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <ShakePopup />
+        </>
     );
 }
