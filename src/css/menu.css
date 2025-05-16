@@ -1,0 +1,380 @@
+.menu-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 60px 40px;
+    font-family: var(--font-main);
+    min-height: 100vh;
+}
+
+.menu-title {
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.menu-title img {
+    max-width: 100%;
+    width: clamp(120px, 50%, 300px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.menu-wrapper {
+    display: flex;
+    gap: 60px;
+    justify-content: space-between;
+}
+
+.menu-left {
+    flex: 2;
+}
+
+.menu-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.section-divider {
+    height: 2px;
+    background-color: #fce2c6;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    margin-bottom: 25px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.item-title {
+    font-size: 16px;
+}
+
+.item-price {
+    font-size: 16px;
+}
+
+.item-description {
+    font-size: 14px;
+    color: #e8caa7;
+    margin-top: 5px;
+}
+
+.drinks-section {
+    border: 2px dashed #fce2c6;
+    padding: 20px;
+}
+
+.drinks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drink-item {
+    font-size: 15px;
+    margin: 6px 0;
+}
+
+.extra-items {
+    margin-top: 10px;
+}
+
+.footer-box {
+    background-color: #fce2c6;
+    color: #0e2a1f;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-top: auto;
+}
+
+.footer-title {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.sun-icon {
+    font-size: 24px;
+    margin-top: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .menu-container {
+        padding: 32px 16px;
+        background-color: var(--bg-color);
+    }
+
+    .menu-title {
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 32px;
+        line-height: 1.2;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        animation: fadeSlideLeft 0.7s ease both;
+    }
+
+    .menu-wrapper {
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .menu-left,
+    .menu-right {
+        width: 100%;
+    }
+
+    .menu-section {
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        animation: fadeSlideLeft 0.7s ease both;
+    }
+
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+        text-align: center;
+        letter-spacing: 1px;
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 4px;
+    }
+
+    .section-divider {
+        display: none;
+    }
+
+    .menu-item {
+        margin-bottom: 24px;
+        padding: 10px;
+        border-bottom: 1px dashed var(--accent-color);
+    }
+
+    .item-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .item-title {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .item-price {
+        font-size: 16px;
+        color: var(--accent-color);
+    }
+
+    .item-description {
+        font-size: 14px;
+        text-align: center;
+        margin-top: 6px;
+        line-height: 1.4;
+        color: #f6dcb7;
+    }
+
+    .drinks-section {
+        border: 2px dashed var(--accent-color);
+        padding: 20px;
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.03);
+        animation: scalePop 0.5s ease both;
+    }
+
+    .drinks-header {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .drinks-header h2 {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .drink-item {
+        font-size: 16px;
+        margin: 8px 0;
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .extra-items {
+        margin-top: 16px;
+    }
+
+    .footer-box {
+        background-color: var(--accent-color);
+        color: var(--bg-color);
+        padding: 24px;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 12px;
+        margin-top: 48px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        animation: scalePop 0.5s ease both;
+    }
+
+    .footer-title {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .sun-icon {
+        font-size: 28px;
+        margin-top: 12px;
+    }
+
+    /* Smooth entry animations (optional) */
+    .menu-section,
+    .drinks-section,
+    .footer-box {
+        animation: fadeInUp 0.6s ease both;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeSlideLeft {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes scalePop {
+        0% {
+            transform: scale(0.95);
+            opacity: 0;
+        }
+        60% {
+            transform: scale(1.05);
+            opacity: 0.7;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes glowIn {
+        0% {
+            text-shadow: none;
+            opacity: 0;
+        }
+        100% {
+            text-shadow: 0 0 8px var(--accent-color), 0 0 20px var(--accent-color);
+            opacity: 1;
+        }
+    }
+    
+}
+
+
+.icon-inline {
+    margin-right: 8px;
+    vertical-align: middle;
+    color: var(--accent-color);
+    font-size: 22px;
+}
+
+.sun-icon {
+    font-size: 36px;
+    color: var(--bg-color);
+    animation: pulseGlow 1.8s infinite;
+}
+
+/* Animazioni extra */
+@keyframes spinIn {
+    from {
+        transform: rotate(-90deg) scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        text-shadow: 0 0 8px var(--bg-color);
+    }
+    50% {
+        text-shadow: 0 0 14px var(--bg-color);
+    }
+}
