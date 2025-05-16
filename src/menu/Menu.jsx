@@ -80,7 +80,7 @@ export default function Menu() {
                         icon={<FaWineGlass />}
                         items={viniBianchi}
                     />
-
+                    <div className="mt10"> </div>
                     <MenuSection
                         title="BOLLICINE"
                         icon={<GiChampagneCork />}
