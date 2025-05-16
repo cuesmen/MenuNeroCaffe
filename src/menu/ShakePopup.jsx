@@ -4,6 +4,8 @@ export default function ShakePopup() {
   const [showPopup, setShowPopup] = useState(false);
   const [permissionGranted, setPermissionGranted] = useState(false);
 
+  const onlyOnce = false; // cambia in true se vuoi mostrarlo solo la prima volta
+
   useEffect(() => {
     async function requestPermissionIfNeeded() {
       if (
@@ -40,9 +42,17 @@ export default function ShakePopup() {
       const total = Math.abs(x) + Math.abs(y) + Math.abs(z);
       const now = Date.now();
 
+      const alreadyShown = localStorage.getItem("shake_shown") === "true";
+
       if (total > 100 && now - lastShake > 1000) {
         lastShake = now;
+
+        if (onlyOnce && alreadyShown) return;
+
         setShowPopup(true);
+        if (onlyOnce) {
+          localStorage.setItem("shake_shown", "true");
+        }
       }
     }
 
